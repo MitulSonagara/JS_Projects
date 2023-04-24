@@ -9,16 +9,20 @@ arr.forEach(button => {
         if (e.target.innerHTML == "=") {
             str = eval(str)
             input.value = str
+            input.style.color = "#30a509"
             output.value = ""
+            str = ""
         }
         else if (e.target.innerHTML == "AC") {
             str = ""
             input.value = str
+            input.style.color = "#EFEFEF"
             output.value = ""
         }
         else if (e.target.innerHTML == "C") {
             str = str.substring(0, str.length - 1)
             input.value = str
+            input.style.color = "#EFEFEF"
             if (str.length == 0) {
                 output.value = ""
             } else {
@@ -28,6 +32,7 @@ arr.forEach(button => {
         else if (e.target.innerHTML == "%") {
             input.value = str + "%"
             str += "/100"
+            input.style.color = "#EFEFEF"
             output.value = eval(str)
         }
         else if (e.target.innerHTML == "()") {
@@ -47,12 +52,14 @@ arr.forEach(button => {
                 str += ")"
             }
             input.value = str
+            input.style.color = "#EFEFEF"
             output.value = eval(str)
         }
         else {
             if (validInput(e.target.innerHTML)) {
                 str += e.target.innerHTML
                 input.value = str
+                input.style.color = "#EFEFEF"
                 output.value = eval(str)
             }
         }
@@ -64,16 +71,22 @@ document.addEventListener("keydown", (e) => {
     if (e.key === "Enter") {
         str = eval(str)
         input.value = str
+        input.style.color = "#30a509"
         output.value = ""
+        str = ""
     }
     else if (e.key === "%") {
         input.value = str + "%"
+        input.style.color = "#EFEFEF"
+
         str += "/100"
         output.value = eval(str)
     }
     else if (e.key === "Backspace") {
         str = str.substring(0, str.length - 1)
         input.value = str
+        input.style.color = "#EFEFEF"
+
         if (str.length == 0) {
             output.value = ""
         } else {
@@ -84,6 +97,7 @@ document.addEventListener("keydown", (e) => {
         if (validInput(e.key)) {
             str += e.key
             input.value = str
+            input.style.color = "#EFEFEF"
             output.value = eval(str)
         }
     }
